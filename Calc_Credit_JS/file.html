@@ -1,0 +1,98 @@
+<DOCTYPE html!>
+<head>
+<meta http-equiv="content-type" content="text/html; charset="utf=8">
+<title>Calculator</title>
+<script language="javascript" >
+function plus(){
+	peremennaja1=parseFloat(document.anketa.odin.value);
+	//alert(peremennaja1);
+	peremennaja2=parseFloat(document.anketa.dva.value);
+	rezultat=peremennaja1+peremennaja2;
+	document.anketa.otvet.value=rezultat;
+}
+
+function minus(){
+	peremennaja1=parseFloat(document.anketa.odin.value);
+	//alert(peremennaja1);
+	peremennaja2=parseFloat(document.anketa.dva.value);
+	rezultat=peremennaja1-peremennaja2;
+	document.anketa.otvet.value=rezultat;
+}
+function multiplication(){
+	peremennaja1=parseFloat(document.anketa.odin.value);
+	//alert(peremennaja1);
+	peremennaja2=parseFloat(document.anketa.dva.value);
+	rezultat=peremennaja1*peremennaja2;
+	document.anketa.otvet.value=rezultat;
+}
+function division(){
+	peremennaja1=parseFloat(document.anketa.odin.value);
+	//alert(peremennaja1);
+	peremennaja2=parseFloat(document.anketa.dva.value);	
+	if (peremennaja2 ==0)
+	{alert("На ноль делить нельзя, введите другое значение")
+	return;}
+	else {
+	rezultat=peremennaja1/peremennaja2;
+	document.anketa.otvet.value=rezultat;}
+	}
+function pow(){
+	peremennaja1=parseFloat(document.anketa.odin.value);
+	//alert(peremennaja1);
+	peremennaja2=parseFloat(document.anketa.dva.value);
+	rezultat=peremennaja1/peremennaja2;
+	document.anketa.otvet.value=rezultat;
+}
+function sqrt(){
+	peremennaja1=parseFloat(document.anketa.odin.value);
+	rezultat=Math.sqrt(peremennaja1);
+	document.anketa.otvet.value=rezultat;
+}
+function sin(){
+	peremennaja1=parseFloat(document.anketa.odin.value);
+	if (peremennaja1==""){alert("На ноль делить нельзя, введите другое значение")
+	return;}else{rezultat=(Math.sin(peremennaja1 * Math.PI / 180.0));
+	document.anketa.otvet.value=rezultat;
+}
+	}
+function cos(){
+	peremennaja1=parseFloat(document.anketa.odin.value);
+	rezultat=(Math.cos(peremennaja1 * Math.PI / 180.0));
+	document.anketa.otvet.value=rezultat;
+}
+function tan(){
+	peremennaja1=parseFloat(document.anketa.odin.value);
+	rezultat=(Math.tan(peremennaja1 * Math.PI / 180.0));
+	document.anketa.otvet.value=rezultat;
+}
+function pow(){
+	peremennaja1=parseFloat(document.anketa.odin.value);
+	peremennaja2=parseFloat(document.anketa.dva.value);
+	rezultat=Math.pow(peremennaja1, peremennaja2);
+	document.anketa.otvet.value=rezultat;
+}
+function cot(){
+	peremennaja1=parseFloat(document.anketa.odin.value);
+	rezultat=(1/Math.tan(peremennaja1 * Math.PI / 180.0));
+	document.anketa.otvet.value=rezultat;
+}	
+</script>
+</head>
+<body>
+<form name="anketa" method="get" action="">
+A=<input type="text" name="odin" /><br/>
+B=<input type="text" name="dva" /> <br/>
+C=<input type="text" name="otvet"> <br/>
+<input type="button" value="+" onclick="plus()" />
+<input type="button" value="-" onclick="minus()" />
+<input type="button" value="*" onclick="multiplication()" />
+<input type="button" value="/" onclick="division()"/>
+<input type="button" value="pow" onclick="pow()" />
+<input type="button" value="sqrt" onclick="sqrt()"/><br/>
+<input type="button" value="sin" onclick="sin()"/>
+<input type="button" value="cos" onclick="cos()"/>
+<input type="button" value="tan" onclick="tan()"/>
+<input type="button" value="cot" onclick="cot()"/>
+</form>
+</body>
+</html>

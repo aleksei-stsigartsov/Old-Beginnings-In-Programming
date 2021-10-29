@@ -1,0 +1,159 @@
+<!doctype html>
+
+<html>
+    <head>
+
+        <meta charset="utf-8" content="text/html">
+        <title>Laboratory page</title>
+		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+        <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
+		<link type="text/css" rel="stylesheet" href="style.css"/>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">	
+    </head>
+
+    <body style="background-color: lightgray;">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <nav  style="background: rgb(30,39,97,0.8);" class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand font1" href="main_page.html">Arduino/Бригадная Учебка</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                        </button>
+                      
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle font1" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Выполненые задания
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item font1" href="laboratory_task_page1.html">Задание 1</a>
+                                    <a class="dropdown-item font1" href="laboratory_task_page2.html">Задание 2</a>
+                                    <a class="dropdown-item font1" href="laboratory_task_page3.html">Задание 3</a>
+                                </div>
+                                </li>
+                            </ul>
+                            <div style="padding-right: 10px;">
+                                <img src="img/user.png" width="50px"/>
+                            </div>
+                            <div>
+                                <a class="nav-link dropdown-toggle font1" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Aleksei Stsigartsov
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item font1" href="sign_up_or_in_page.html">Выйти из аккаунта</a>
+                            </div>
+                        </div>
+                      </nav>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="col-12">
+                <div style="background:url(img/bg.jpg)">
+                    <div class="form-group">
+                        <ul class="navbar-nav" style="padding-right: 10%; padding-bottom: 5%; padding-top: 5%;">
+                            <ul style="text-align: center;">
+                                <div>
+                                    <h1 class="font2">Arduino Traffic Lights</h1>
+                                </div>
+                            </ul>
+                            <ul>
+                                <span class="font2">
+                                    <img style="float: left; margin: 1px 20px 7px 0; width:400px" src="img/Arduino-Traffic-Light.jpg"/>
+                                    <div>
+									<h4>Состав устройства:</h4>
+                                    <ol>
+                                        <li>Arduino</li>
+                                        <li>3 светодиода</li>
+                                        <li>3 резистора на 100 Ом</li>
+                                        <li>3 провода для подключения</li>
+                                        <li>Доска для подключения</li>
+                                    </ol>
+									</div>
+                                </span>
+                            </ul>
+                            <ul style="padding-top: 2%;">
+                                <details>
+                                <summary class="font2">Код подключения к модулю</summary>
+								<div class="font2">
+								<img src="img/arduino-traffic-light-circuit-diagram.png" style="padding-bottom: 10px;">
+								<h4>Код программы для подключения:</h4>
+        <div>
+        <ol>
+            <li>// variables</li>
+            <li>int GREEN = 2;</li>
+            <li>int YELLOW = 3;</li>
+            <li>int RED = 4;</li>
+            <li>int DELAY_GREEN = 5000;</li>
+            <li>int DELAY_YELLOW = 2000;</li>
+            <li>int DELAY_RED = 5000;</li>
+            <li>// basic functions</li>
+            <li>void setup()</li>
+            <li>{</li>
+                <li>pinMode(GREEN, OUTPUT);</li>
+            <li>pinMode(YELLOW, OUTPUT);</li>
+            <li>pinMode(RED, OUTPUT);</li>
+            <li>}</li>
+            <li>void loop()</li>
+            <li>{</li>
+                <li>green_light();</li>
+            <li>delay(DELAY_GREEN);</li>
+            <li>yellow_light();</li>
+            <li>delay(DELAY_YELLOW);</li>
+            <li>red_light();</li>
+            <li>delay(DELAY_RED);</li>
+            <li>}</li>
+            <li>void green_light()</li>
+            <li>{</li>
+                <li>digitalWrite(GREEN, HIGH);</li>
+            <li>digitalWrite(YELLOW, LOW);</li>
+            <li>digitalWrite(RED, LOW);</li>
+            <li>}</li>
+            <li>void yellow_light()</li>
+            <li>{</li>
+                <li>digitalWrite(GREEN, LOW);</li>
+            <li>digitalWrite(YELLOW, HIGH);</li>
+            <li>digitalWrite(RED, LOW);</li>
+            <li>}</li>
+            <li>void red_light()</li>
+            <li>{</li>
+                <li>digitalWrite(GREEN, LOW);</li>
+            <li>digitalWrite(YELLOW, LOW);</li>
+            <li>digitalWrite(RED, HIGH);</li>
+            <li>}</li>
+		</ol>
+        </div>
+								</div>
+                                </details>
+                            </ul>
+                            <ul style="padding-top: 2%;">
+                                <details>
+                                <summary class="font2">Просмотр реакции устройства</summary>
+								<div class="font2">
+                                <h4>Сценарий работы устройства:</h4>
+								<ol>
+                                    <li>Загорается зеленый светодиод (задержка 5000 мс)</li>
+                                    <li>Загорается желтый светодиод (задержка 2000 мс)</li>
+                                    <li>Загорается красный светодиод (задержка 5000 мс)</li>
+                                </ol>
+                                </div>
+								</details>
+                            </ul>                             
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>       
+        
+
+        <script language="javascript" src="js/jquery-3.5.1.slim.min.js"></script>
+        <script language="javascript" src="js/popper.min.js"></script>
+        <script language="javascript" src="js/bootstrap.min.js"></script>
+
+    </body>
+</html>

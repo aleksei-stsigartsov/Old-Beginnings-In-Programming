@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <meta charset="utf-8" content="text/html">
+  <title>KY-032</title>
+  <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
+</head>
+<body style="background-color:#fff;">
+  <div class="container">
+  <nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="index.html">Arduino models</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Arduino modules
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="KY-018.html">KY-018</a>
+		  <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="KY-032.html">KY-032</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="KY-027.html">KY-027</a>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+    <h1 style="text-align: center;">Датчик для избегания препятствий KY-032</h1>
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-3 col-sm-12">
+        <img src="KY-032.jpg" width="200px">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <span>
+        <h2>Краткое описание модуля:</h2>
+        “KY-032” – модуль представляет собой инфракрасный датчик обнаружения препятствий. Устройство имеет передатчик (IR LED), излучающий инфракрасный луч частотой 38 кГц,
+		который принимается приемником (IR receiver) на плате. При приближении какого-либо предмета к сенсору (близость регулируется потенциометром) на выходе “OUT” появляется низкий уровень
+		напряжения и включается светодиод на плате модуля.
+        </span>
+      </div>
+    </div>
+      <div class="row">
+        <div class="col-lg-6 col-sm-12">
+          <h2>Схема подключения к Arduino:</h2>
+          <img src="KY-032_scheme.jpg" width="50%" alt="Image not found">
+        </div>
+        <div class="col-lg-6 col-sm-12">
+        <h2>Код программы для подключения:</h2>
+        <div>
+        <ol>
+			<li> digitalWrite( enablePin, HIGH); //Включить внутренний сигнал 38 кГц</li>
+			<li> microDelay( 210);                   //Задержка 210µs(8 пульсов по 38kHz)</li>
+			<li>  if( digitalRead( outputPin))        //Если Output детектора равен HIGH</li>
+			<li> {</li>
+			<li>  objectDetect = false;           //Препятсвия не было найдено</li>
+			<li> }</li>
+			<li>else                                //Но если Output равен LOW,</li>
+			<li>      microDelay( 395);               //Опять ждать 15 пульсов</li>
+			<li>      if( digitalRead( outputPin))    //Если Output теперь равен HIGH</li>
+			<li>      {</li>
+			<li>          objectDetect = false;       //Препятсвия не было найдено</li>
+			<li>      }</li>
+			<li>      else                            //Если Output до сих пор LOW</li>
+			<li>      {</li>
+			<li>          objectDetect = true;        //Препятсвие било обнаружено</li>
+			<li>      }</li>
+			<li>  }</li>
+			<li>  digitalWrite( enablePin, LOW);      //Выключить внутренний сигнал 38kHz</li>
+			<li></li>
+		</ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script language="javascript" src="js/jquery-3.5.1.slim.min.js"></script>
+  <script language="javascript" src="js/popper.min.js"></script>
+  <script language="javascript" src="js/bootstrap.min.js"></script>
+</body>
+</html>

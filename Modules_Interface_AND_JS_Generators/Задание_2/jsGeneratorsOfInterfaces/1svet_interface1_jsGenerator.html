@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <script language="javascript">
+      class PageGenerator {
+        constructor(code) {
+          this.code = code;
+        }
+        body() {
+          document.body.innerHTML = this.code;
+        }
+        head() {
+          document.head.innerHTML = this.code;
+        }
+      }
+      headText =
+		'<meta charset="utf-8" />\
+        <title>Модуль "Умный свет"</title>\
+        <link href="../css/bootstrap.min.css" rel="stylesheet" />\
+		<link href="../css/index.css" rel="stylesheet" />\
+		<script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"><\/script>';
+      bodyText =
+		'<div class="container-fluid">\
+			<div class="row">\
+				<h2 style="text-align: center; padding-top: 20px"><img src="icons/1.png" height="35px">\
+				Модуль "Умный свет"\
+				</h2>\
+			</div>\
+		<div class="row">\
+			<div class="col" style="padding-left: 30px; padding-bottom: 5px">\
+				<h3><img src="icons/2.png" height="40px">Яркость освещения</h3>\
+			</div>\
+		</div>\
+		<div class="row">\
+			<span style="padding-left: 30px">Выключить | Включить свет</span>\
+			<div class="col" style="padding-left: 30px">\
+				<label class="switch">\
+					<input type="checkbox"\
+					class="btn-check"\
+					name="vbtn-radio"\
+					id="vbtn-radio1"\
+					autocomplete="off"\
+					>\
+					<span class="slider round"></span>\
+				</label>\
+			</div>\
+		</div>\
+		<div class="row">\
+			<span style="padding-left: 30px">Авторегулирование</span>\
+			<div class="col" style="padding-left: 30px">\
+				<label class="switch">\
+					<input type="checkbox"\
+					class="btn-check"\
+					name="vbtn-radio"\
+					id="vbtn-radio1"\
+					autocomplete="off"\
+					>\
+					<span class="slider round"></span>\
+				</label>\
+			</div>\
+		</div>\
+		<div class="row" style="padding-left: 20px;";>\
+			<div class="col">\
+				<form>\
+					<div class="form-group">\
+						<label for="formControlRange">Уровень яркости</label></br>\
+						<input\
+						type="range"\
+						class="form-control-range"\
+						id="formControlRange"\
+						>\
+					</div>\
+				</form>\
+			</div>\
+		</div>\
+		<div class="row">\
+			<div class="col" style="padding-left: 30px; padding-bottom: 5px">\
+				<h3><img src="icons/1.png" height="40px">Цвет освещения</h3>\
+				<div id="picker"></div>\
+				<script>var colorPicker = new iro.ColorPicker("#picker", { width: 200, color: "#fff" });<\/script>\
+			</div>\
+		</div><br>\
+		\
+		<div class="row">\
+			<div class="col" style="padding-left: 30px; padding-bottom:px">\
+				<h3><img src="icons/3.png" height="45px">Night Shift</h3>\
+				<a>Night Shift - это режим в котором приложение автоматически смещает цвета дислпея к теплому краю</a>\
+				<p>спектра после наступления темноты. Эта функция может помочь Вам лучше выспаться ночью.</p>\
+				<div class="row">\
+			<span>Выключить | Включить</span>\
+				<div class="col">\
+					<label class="switch">\
+						<input type="checkbox"\
+						class="btn-check"\
+						name="vbtn-radio"\
+						id="vbtn-radio1"\
+						autocomplete="off"\
+						>\
+						<span class="slider round"></span>\
+					</label>\
+				</div>\
+			</div>\
+				<span> Выбрать время:</span><br>\
+				<label for="appt">Начало:</label>\
+				<input \
+				type="time"\
+				id="appt"\
+				name="appt">\
+				<label for="appt">Конец:</label>\
+				<input\
+				type="time"\
+				id="appt"\
+				name="appt">\
+				</div>\
+			</div>\
+		</div>\
+		\
+		<script src="../js/jquery-3.5.1.slim.min.js"><\/script>\
+        <script src="../js/popper.min.js"><\/script>\
+        <script src="../js/bootstrap.min.js"><\/script>';
+		
+      let head = new PageGenerator(headText);
+      let body = new PageGenerator(bodyText);
+      head.head();
+      body.body();
+    </script>
+  </body>
+</html>

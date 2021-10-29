@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <script language="javascript">
+          class PageGenerator {
+            constructor(code) {
+              this.code = code;
+            }
+            body() {
+              document.body.innerHTML = this.code;
+            }
+            head() {
+              document.head.innerHTML = this.code;
+            }
+          }
+	      headText = '<meta charset="utf-8" />\
+          <title>Interface 2</title>\
+          <link href="../css/bootstrap.min.css" rel="stylesheet" />';
+
+        bodyText = '<div class="container-fluid">\
+        <div class="row">\
+          <h2 style="text-align: center; padding-top: 20px;">\
+            Модуль "Умный cвет"\
+          </h2>\
+        </div>\
+        <div class="row">\
+          <div class="col" style="padding-left: 30px; padding-bottom: 5px">\
+            <h3>Яркость освещения</h3>\
+            <span>Состояние света: Включен</span> <br/>\
+            <span>Авторегулирование: Вкл</span> <br/>\
+            <span>Уровень яркости: 50%</span>\
+          </div>\
+        </div>\
+        <div class="row">\
+          <div class="col" style="padding-left: 30px; padding-bottom: 5px">\
+            <h3>Цвет освещения</h3>\
+            <span>Установленный цвет: Белый</span>\
+          </div>\
+        </div>\
+        <div class="row">\
+          <div class="col" style="padding-left: 30px; padding-bottom: 5px">\
+            <h3>Night Shift</h3>\
+            <span>Режим: Включен</span>\
+          </div>\
+        </div><br>\
+        <div class="row">\
+          <div class="col" style="padding-left: 30px;">\
+            <button style="width: 210px" type="button" class="btn btn-outline-dark">\
+              Обновить сведения\
+            </button>\
+          </div>\
+        </div>\
+      </div>\
+      <script src="../js/jquery-3.5.1.slim.min.js"><\/script>\
+      <script src="../js/popper.min.js"><\/script>\
+      <script src="../js/bootstrap.min.js"><\/script>';
+
+          let head = new PageGenerator(headText);
+          let body = new PageGenerator(bodyText);
+          head.head();
+          body.body();
+    </script>
+  </body>
+</html>

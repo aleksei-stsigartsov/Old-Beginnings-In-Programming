@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Interface 1</title>
+		<link href="../css/bootstrap.min.css" rel="stylesheet" />
+		<link href="../css/index.css" rel="stylesheet" />
+		<script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+	</head>
+	<body>
+	<div style="background-image: url('icons/bg.jpg');  background-repeat: repeat;  background-attachment: scroll; ">
+<!-------------------------------------------Заголовок-------------------------------------------->
+		<div class="container-fluid">
+			<div class="row">
+				<h2 style="text-align: center; padding-top: 20px">
+				Модуль "Умный свет"
+				</h2>
+<!-------------------------------------------Выбор-комнаты-заголовок------------------------------>
+				<div class="col-6" style="padding-left: 30px; padding-bottom: 5px"> 
+					<h3><img src="icons/light.svg" height="40px"> Выбор освещения</h3>
+				</div>
+<!-------------------------------------------Яркость-освещения-заголовок-------------------------->				
+				<div class="col-6" style="padding-left: 30px; padding-bottom: 5px">
+					<h3><img src="icons/2.png" height="40px"> Яркость освещения</h3>
+				</div>
+<!------------------------------------------Выбор-комнаты-меню------------------------------------>				
+			<div class="btn-group col-6" style="padding-left: 40px;">
+				<button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+				Выберите комнату для освещения
+				</button>
+				<ul class="dropdown-menu">
+					<li><h6 class="dropdown-header">Первый этаж</h6></li>
+					<li><h6 class="dropdown-header">&#8627; Гостинная</h6></li>
+					<li><button class="dropdown-item" type="button">Свет 001</button></li>
+					<li><hr class="dropdown-divider"></li>
+					<li><h6 class="dropdown-header">Комната 1</h6></li>
+					<li><button class="dropdown-item" type="button">Свет 002</button></li>
+				</ul>
+			</div><br>			
+<!-------------------------------------------Состояние-света-------------------------------------->	  
+			<div class="col-4">
+				<span id="sosto" style="padding-left: 30px">Выключить | Включить</span>
+				<div class="col-12" style="padding-left: 30px">
+					<label class="switch">
+						<input type="checkbox" id="btnLightUp" class="btn-check" name="vbtn-radio" autocomplete="off">
+						<span class="slider round"></span>
+					</label>
+				</div>
+			</div>
+<!-------------------------------------------Цвет-освещения-заголовок------------------------------>			
+			<div class="col-6">
+				<div class="col" style="padding-left: 25px; padding-bottom: 5px">
+					<h3><img src="icons/1.png" height="30px">Температура освещения</h3>
+				</div>
+			</div>
+<!-------------------------------------------Автоматическое-регулирование------------------------->	
+			<div class="col-6">
+				<span style="padding-left: 30px">Авторегулирование</span>
+				<div class="col-12" style="padding-left: 30px">
+					<label class="switch">
+						<input type="checkbox"
+						class="btn-check"
+						name="vbtn-radio"
+						id="vbtn-radio1"
+						autocomplete="off"
+						>
+						<span class="slider round"></span>
+					</label>
+				</div>
+			</div>
+<!-------------------------------------------Цвет-освещения---------------------------------------->		
+			<div class="col-6">
+				<div style="padding-left: 30px" id="picker"></div>
+				<script>
+				var colorPicker = new iro.ColorPicker("#picker", {
+				width: 200,
+				color: "#fff"
+				});
+				</script> 
+			</div>			
+<!-------------------------------------------Уровень-яркости-------------------------------------->			
+			<div class="col-6" style="padding-left: 20px;";>
+				<div class="col">
+					<form>
+						<div class="form-group" style="padding-left: 30px">
+							<label for="formControlRange" >Уровень яркости</label><br>
+							<input type="range" class="form-range" min="0" max="100" step="1" id="lightUpValue" disabled onchange="changeLightLevel()">
+						</div>
+						</div>
+							<div class="col-4">
+							<div class="mb-3" style="padding-left: 30px">
+								<label class="form-label"></label>
+								<input type="text" id="winOpenValueText" class="form-control" placeholder="0.00">
+							</div>
+							</div>
+					</form>
+				</div>
+			</div>
+<!-------------------------------------------Night-Shift-заголовок--------------------------------->	
+			<div class="col-6" style="padding-left: 40px; paddin">
+				<h3><img src="icons/3.png" height="45px">Night Shift</h3>
+				<a>Night Shift - это режим в котором приложение автоматически смещает цвета к теплому краю</a>
+				<p>спектра после наступления темноты. Эта функция может помочь Вам лучше выспаться ночью.</p>
+<!------------------------------------------Выбор-комнаты-меню------------------------------------>	
+				<div class="btn-group">
+					<button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+					Выберите комнату для освещения
+					</button>
+					<ul class="dropdown-menu">
+						<li><h6 class="dropdown-header">Первый этаж</h6></li>
+						<li><h6 class="dropdown-header">&#8627; Гостинная</h6></li>
+						<li><button class="dropdown-item" type="button">Свет 001</button></li>
+						<li><hr class="dropdown-divider"></li>
+						<li><h6 class="dropdown-header">Комната 1</h6></li>
+						<li><button class="dropdown-item" type="button">Свет 002</button></li>
+					</ul>
+				</div>
+			</div>
+<!-------------------------------------------Night-Shift-состояние--------------------------------->				
+			<div class="col-6">
+				<span style="padding-left: 30px">Выключить | Включить режим</span>
+				<div class="col-6" style="padding-left: 30px">
+					<label class="switch">
+						<input type="checkbox" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off">
+						<span class="slider round"></span>
+					</label>
+				</div>
+<!------------------------------------------Начало-выбора-времени-н.р.------------------------------>				
+				<div class="col-6" style="padding-left: 30px">
+					<label for="appt">Начало:</label>
+					<input type="time" id="appt" name="appt">
+				</div><br>
+<!------------------------------------------Конец-выбора-времени-н.р.------------------------------>	
+				<div class="col-6" style=" padding-left:30px">
+					<label for="appt">Конец:</label>
+					<input style="padding-left: 10px" type="time" id="appt" name="appt">
+				</div>				
+			</div>				
+		</div>	
+	</div>
+<br><br>
+<!------------------------------------------Подвал------------------------------------------------>			
+    <script src="../js/jquery-3.5.1.slim.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+	<script language="javascript">
+		function winButtonToggle(){
+
+		}
+		function changeWinAngle(){
+		document.getElementById("lightLevelValueText").value=document.getElementById("lightUpValue").value;
+		}
+		document.getElementById('btnLightUp').addEventListener('checked', function() {
+		document.getElementById('sosto').innerHTML ="Окно открыто"
+		})
+</script>
+	</div>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+body
+{
+	margin: 0px;
+}
+div
+{
+	border:1px solid black;
+}
+.mainDiv
+{
+	text-align:center;
+	background-image: url(1.jpg);
+	background-size: cover;
+	background-position: center center;
+	background-attachment: fixed;
+}
+.mainDiv div
+{
+	width:960px;
+	margin:0px auto;
+}
+
+.upperMenu
+{
+	height: 50px;
+	width: 100% !important;
+	position: fixed;
+	top:0px;
+	background-color: rgba(0,0,0,0.6);
+	color: white;
+}
+.upperMenu ul li
+{ 
+	display:inline-block;
+	width: auto;
+	margin: 0px 20px;
+	font-family: 'Oswald', sans-serif, cursive;
+	cursor:pointer;
+	font-size:22px;
+}
+.bunners
+{
+	height: 300px;
+	margin-top:51px !important;
+}
+.bunners
+{
+	height: 300px;
+	margin-top:51px !important;
+}
+.middleMenu
+{
+	height: 100px;
+}
+.middleInfo
+{
+	height: 500px;
+}
+.bottomInfo
+{
+	height: 500px;
+}
+.footer
+{
+	height: 300px;
+}

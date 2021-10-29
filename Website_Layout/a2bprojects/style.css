@@ -1,0 +1,129 @@
+	.flyMenu{ width:99%;}
+	.flyMenu div{background-color: rgba(0,0,0, 0.8);}
+	.flyMenu div {padding: color:#f8f9fa; cursor: pointer;}
+	.flyMenu div :hover{color:  rgba(0,0,0, 0.5);}
+	.firstRow{margin-top: 60px;}
+	.font1{font-family: 'Forum', cursive; font-size: 20px;}
+	.font2{font-family: 'Forum', cursive; color: #f8f9fa; font-size: 19px;}
+	.font3{font-family: 'Forum', cursive; font-size: 24px;}
+	.bgdefault{background-color: #f8f9fa}
+	.boxx{display:inline-block; width:100%; vertical-align:baseline; overflow: auto;}
+	.page-footer {background-color: rgba(000, 000, 000, 0.8);}
+    .page-footer__copyright {padding-top: 20px; padding-bottom: 20px; text-align: center; color: white; font-size: 1.25rem;}
+	.rightlang {text-align: right;}
+	.menupadding {text-align: justify; padding: 20px;}
+	.scale {
+    transition: 1s; /* Время эффекта */
+   }
+   .scale:hover {
+    transform: scale(1.2); /* Увеличиваем масштаб */
+   }
+   .mainDiv
+{
+	text-align:center;
+	background-image: url(logo.jpg);
+	background-size: cover;
+	background-position: center center;
+	background-attachment: fixed;
+}
+.image {
+	position	: relative;
+	width		: 10%; /* for IE 6 */
+}
+
+h2 {
+	position	: absolute;
+	top		: 400px;
+	left		: 700px;
+	width		: 100%;
+}
+h2 span {
+	color			: white;
+	font			: bold 35px/50px Forum;
+	letter-spacing		: -1px;
+	background		: rgb(0, 0, 0); /* на случай, если следующая строка не сработает */
+	background		: rgba(0, 0, 0, 0.7);
+	padding			: 10px;
+}
+.serviceOptions {
+	position	: ;
+	top		: -80px;
+	left		: 0px;
+	width		: 100%;
+}
+.serviceOptions2 {
+	position	: ;
+	top		: -545px;
+	left:      570px;
+	width		: 100%;
+}
+.shapkaPos
+{
+	position : absolute;
+	top		: -530px;
+
+}	
+body {
+	background: url(photos/brrr.jpg);	
+}
+.gifgift
+{
+	position : absolute ;
+	height: 300px;
+	width: 310px;
+	top		: 100px;
+	left		: 590px;
+}
+h3 {
+	position	: absolute;
+	top		: -410px;
+	left		: 450px;
+	width		: 100%;
+}
+h3 span {
+	color			: white;
+	font			: bold 35px/50px Forum;
+	letter-spacing		: -1px;
+	background		: rgb(0, 0, 0); /* на случай, если следующая строка не сработает */
+	background		: rgba(0, 0, 0, 0.7);
+	padding			: 10px;
+}
+.boxx{display:inline-block;
+ width:100%;
+ vertical-align:baseline;
+ overflow: auto;
+ position	: relative;
+	top		: -229px;
+background		: rgba(222, 224, 239, 0.9);
+ }
+ .leftimg {
+    float:left; /* Выравнивание по левому краю */
+    margin: 7px 7px 7px 0; /* Отступы вокруг картинки */
+	
+   }
+   .rightimg  {
+    float: right; /* Выравнивание по правому краю  */ 
+    margin: 7px 0 7px 7px; /* Отступы вокруг картинки */
+   }
+ .ilus {
+    border-radius: 10px; /* Радиус скругления */
+    border: 2px solid #000000; /* Параметры рамки */
+   }
+   .round {
+    border-radius: 50%; /* Радиус скругления */
+    border: 3px solid black; /* Параметры рамки */
+    box-shadow: 0 0 7px #666; /* Параметры тени */
+   }
+   .gifgift2
+{
+	position : absolute ;
+	height: 240px;
+	width: 1115px;
+	top		: 2260px;
+	left		: 202px;
+}
+.boxx2{display:inline-block;
+ width:100%;
+ vertical-align:baseline;
+ position	: relative;	
+background		: rgba(0, 0, 0, 0.8);

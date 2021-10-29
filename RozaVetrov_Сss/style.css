@@ -1,0 +1,13 @@
+h2{border-left-color: red; border-left-style: solid;
+ border-left-width: 20; text-align: left !important;
+ padding-left: 6 px;}
+p:hover{background-color: red; color: white; cursor: pointer;}
+p:nth-child(2){text-decoration: line-through;}
+p:nth-child(2n+1){background-color: rgba(65,128,255,0.2); padding-left: 30px;}
+p::first-letter{ font-size: 40px; color: orange;
+ text-shadow: 3px 2px 5px rgba(0,0,0,0.8);margin-right: -10px;}
+ .first{position: absolute; top:20px; right:50px; width: 200px; height: 80px;
+ border-radius: 10px; box-shadow: 6px 3px 5px rgba(0,0,0,0.5); background-color: #CC9966;
+ overflow: auto;}
+ body{background-image: url(rose2.png); ;
+ background-color: 55A8BF; background-repeat:no-repeat; background-position:center center; background-attachment: fixed;}

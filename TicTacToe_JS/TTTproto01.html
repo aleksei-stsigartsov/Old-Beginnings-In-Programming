@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title></title>
+<style type="text/css">
+table{margin: 0 auto;}
+td{width: 200px; height: 200px; cursor: pointer; border:gray solid 1px; font-size: 180px; text-align: center;  color: gray; font-family: sans-serif;}
+td:hover{background-color:#FFD7BA}
+</style>
+<script type="text/javascript">
+function gameReset(){
+	N=9;sVar=Array("X","0");S=sVar[0];steps=0;pole=Array();
+	for(i=0;i<N;i++){
+		document.getElementById("gameButton"+(i+1)).innerHTML="";
+		}
+}
+function testIt(kletka){
+	textTest=kletka.innerHTML;
+	if(textTest==""){
+		kletka.innerHTML=S;
+		steps++;
+		for(i=0;i<N;i++){pole[i]=document.getElementById("gameButton"+(i+1)).innerHTML;}
+		vinTest=false;
+		if(pole[0]==pole[1] && pole[2]==pole[1] && pole[0]!=""){vinTest=true;}
+		if(pole[3]==pole[4] && pole[4]==pole[5] && pole[3]!=""){vinTest=true;}
+		if(pole[6]==pole[7] && pole[7]==pole[8] && pole[6]!=""){vinTest=true;}
+		if(pole[0]==pole[3] && pole[3]==pole[6] && pole[0]!=""){vinTest=true;}
+		if(pole[1]==pole[4] && pole[4]==pole[7] && pole[1]!=""){vinTest=true;}
+		if(pole[2]==pole[5] && pole[5]==pole[8] && pole[2]!=""){vinTest=true;}
+		if(pole[0]==pole[4] && pole[4]==pole[8] && pole[0]!=""){vinTest=true;}
+		if(pole[2]==pole[4] && pole[4]==pole[6] && pole[2]!=""){vinTest=true;}
+		if(vinTest==false){
+			if(steps==9){alert("Ничья");gameReset();}
+			S=sVar[1-sVar.indexOf(S)];
+		}else{alert("Победил "+S);gameReset();}
+	}}
+</script>
+</head>
+<body onload="gameReset()">
+<div>
+<table>
+<tr >
+<!--//		<td id="gameButton1" onclick="testIt('gameButton1')"></td>
+		<td id="gameButton2" onclick="testIt(2)"></td> //-->
+		<td id="gameButton1" onclick="testIt(this)"></td>
+		<td id="gameButton2" onclick="testIt(this)"></td>
+		<td id="gameButton3" onclick="testIt(this)"></td>
+</tr>
+<tr >
+		<td  id="gameButton4" onclick="testIt(this)"></td>
+		<td  id="gameButton5" onclick="testIt(this)"></td>
+		<td  id="gameButton6" onclick="testIt(this)"></td>
+</tr>
+<tr >
+		<td  id="gameButton7" onclick="testIt(this)"></td>
+		<td  id="gameButton8" onclick="testIt(this)"></td>
+		<td  id="gameButton9" onclick="testIt(this)"></td>
+</tr>
+</table>
+</div>
+</body>
+</html>

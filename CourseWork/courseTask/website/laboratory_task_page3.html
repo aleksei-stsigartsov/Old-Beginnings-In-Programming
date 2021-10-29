@@ -1,0 +1,169 @@
+<!doctype html>
+
+<html>
+    <head>
+
+        <meta charset="utf-8" content="text/html">
+        <title>Laboratory page</title>
+        <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
+		<link type="text/css" rel="stylesheet" href="style.css"/>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+    </head>
+
+    <body style="background-color: lightgray;">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <nav  style="background: rgb(30,39,97,0.8);" class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand font1" href="main_page.html">Arduino/Бригадная Учебка</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle font1" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Выполненые задания
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item font1" href="laboratory_task_page1.html">Задание 1</a>
+                                    <a class="dropdown-item font1" href="#">Задание 2</a>
+                                    <a class="dropdown-item font1" href="#">Задание 3</a>
+                                </div>
+                                </li>
+                            </ul>
+                            <div style="padding-right: 10px;">
+                                <img src="img/user.png" width="50px"/>
+                            </div>
+                            <div>
+                                <a class="nav-link dropdown-toggle font1" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Aleksei Stsigartsov
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item font1" href="sign_up_or_in_page.html">Выйти из аккаунта</a>
+                            </div>
+                        </div>
+                      </nav>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="col-12">
+                <div style="background:url(img/bg.jpg)">
+                    <div class="form-group">
+                        <ul class="navbar-nav" style="padding-right: 10%; padding-bottom: 5%; padding-top: 5%;">
+                            <ul style="text-align: center;">
+                                <div>
+                                    <h1 class="font2">DIY RGB Tube Lights</h1>
+                                </div>
+                            </ul>
+                            <ul>
+                                <span class="font2">
+                                    <img style="float: left; margin: 1px 20px 7px 0; width:400px" src="img/nano.jfif"/>
+                                    <div>
+									<h4>Состав устройства:</h4>
+                                    <ol>
+                                        <li>Arduino Nano</li>
+                                        <li>2 LED ленты</li>
+                                        <li>2 Белые лампы или алюминиевые осветительные приборы с отражателем</li>
+                                        <li>5V 5A блок питания</li>
+                                        <li>Кнопка</li>
+                                        <li>Провода</li>
+                                        <li>Гнездо и штекер питания постоянного тока</li>
+                                    </ol>
+									</div>
+                                </span>
+                            </ul>
+                            <ul style="padding-top: 2%;">
+                                <details>
+                                <summary class="font2">Код подключения к модулю</summary>
+								<div class="font2">
+								<img src="img/arduino-traffic-light-circuit-diagram.png" style="padding-bottom: 10px;">
+								<h4>Код программы для подключения:</h4>
+        <div>
+        <ol>
+            <li>#include "FastLED.h"</li>
+            <li>#define NUM_LEDS 130</li>
+            <li>#define DATA_PIN 3</li>
+            <li>#define serialRate 115200</li>
+            <li>uint8_t prefix[] = {'A', 'd', 'a'}, hi, lo, chk, i;</li>
+            <li>CRGB leds[NUM_LEDS];</li>
+            <li>void setup() {</li>
+              <li> FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);</li>
+            <li> LEDS.showColor(CRGB(255, 0, 0));</li>
+            <li> delay(500);</li>
+            <li> LEDS.showColor(CRGB(0, 255, 0));</li>
+            <li> delay(500);</li>
+            <li> LEDS.showColor(CRGB(0, 0, 255));</li>
+            <li> delay(500);</li>
+            <li> LEDS.showColor(CRGB(0, 0, 0));</li>
+            <li> Serial.begin(serialRate);</li>
+            <li> Serial.print("Ada\n");</li>
+            <li>}</li>
+            <li>void loop() {</li>
+            <li> for(i = 0; i < sizeof prefix; ++i) {</li>
+            <li>  waitLoop: while (!Serial.available()) ;;</li>
+            <li>  if(prefix[i] == Serial.read()) continue;</li>
+            <li>  i = 0;</li>
+            <li>  goto waitLoop;</li>
+            <li> }</li>
+                <li> while (!Serial.available()) ;;</li>
+            <li> hi=Serial.read();</li>
+            <li> while (!Serial.available()) ;;</li>
+            <li> lo=Serial.read();</li>
+            <li> while (!Serial.available()) ;;</li>
+            <li> chk=Serial.read();</li>
+            <li> if (chk != (hi ^ lo ^ 0x55)) {</li>
+            <li>  i=0;</li>
+            <li>  goto waitLoop;</li>
+            <li> }</li>
+            <li> memset(leds, 0, NUM_LEDS * sizeof(struct CRGB));</li>
+            <li> for (uint8_t i = 0; i < NUM_LEDS; i++) {</li>
+            <li>  byte r, g, b;</li>
+            <li>  while(!Serial.available());</li>
+            <li>  r = Serial.read();</li>
+            <li>  while(!Serial.available());</li>
+            <li>  g = Serial.read();</li>
+            <li>  while(!Serial.available());</li>
+            <li>  b = Serial.read();</li>
+            <li>  leds[i].r = r;</li>
+            <li>  leds[i].g = g;</li>
+            <li>  leds[i].b = b;</li>
+            <li> }</li>
+            <li> FastLED.show();</li>
+            <li>}</li>
+		</ol>
+        </div>
+								</div>
+                                </details>
+                            </ul>
+                            <ul style="padding-top: 2%;">
+                                <details>
+                                <summary class="font2">Просмотр реакции устройства</summary>
+								<div class="font2">
+                                <h4>Сценарий работы устройства:</h4>
+								<ol>
+                                    <li>Загорается зеленый светодиод (задержка 5000 мс)</li>
+                                    <li>Загорается желтый светодиод (задержка 2000 мс)</li>
+                                    <li>Загорается красный светодиод (задержка 5000 мс)</li>
+                                </ol>
+                                </div>
+								</details>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script language="javascript" src="js/jquery-3.5.1.slim.min.js"></script>
+        <script language="javascript" src="js/popper.min.js"></script>
+        <script language="javascript" src="js/bootstrap.min.js"></script>
+
+    </body>
+</html>

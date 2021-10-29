@@ -1,0 +1,18 @@
+Code: 5706779060201
+Name: Nuts
+Quantity: 23
+Price: 3.60
+Total price: 82.8
+
+Code: 4750195020289
+Name: Mustploom
+Quantity: 55
+Price: 12.50
+Total price: 687.5
+
+Code: 6438340000451
+Name: Viivakoodinlukija
+Quantity: 2
+Price: 5.90
+Total price: 11.8
+

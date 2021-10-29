@@ -1,0 +1,46 @@
+<DOCTYPE html!>
+<head>
+<meta http-equiv="content-type" content="text/html; charset="utf=8">
+<title>Account</title>
+<script language="javascript">
+function dolg(){
+S=parseFloat(document.calculator.creditSumm.value);
+P=parseFloat(document.calculator.procent.value);
+T=parseFloat(document.calculator.term.value);
+if(S<=0 || P<0){
+alert("проверьте сумму кредита и процент годовых")
+return;
+}else{
+
+St=(1+T*P/1200)*S
+Sm=St/T
+document.calculator.perMonth.value=Sm;
+document.calculator.totalSumm.value=St;
+document.calculator.overSumm.value=St-Sm;
+
+}
+}
+</script>
+</head>
+<body>
+<form name="calculator" methid="get" action="">
+<table>
+<tr><td align="left">Сумма кредита:</td><td><input type="text" name="creditSumm"></td></tr>
+<tr><td align="left">Процент годовых:</td><td><input type="text" name="procent"></td></tr>
+<tr><td align="left">Срок:</td>
+<td><select name="term" onchange="dolg()">
+<option value="6">6 месяцев</option>
+<option value="12">12 месяцев</option>
+<option value="18">18 месяцев</option>
+<option value="24">2 года</option>
+<option value="36">3 года</option>
+<option value="60">5 лет</option>
+</select></td></tr>
+<tr><td align="left">Выплата в месяц:</td><td><input type="text" name="perMonth"></td></tr>
+<tr><td align="left">Общая сумма:</td><td><input type="text" name="totalSumm"></td></tr>
+<tr><td align="left">Переплата:</td><td><input type="text" name="overSumm"></td></tr>
+<tr><td align="right" colspan="1"></td><td><input type="button" 
+value="Рассчитать:" onclick="dolg()"></td></tr>
+</table>
+</body>
+</html>

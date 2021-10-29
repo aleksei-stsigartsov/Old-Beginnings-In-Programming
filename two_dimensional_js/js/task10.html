@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Task 10</title>
+  </head>
+  <body>
+  <input type="text" id="inputArray" value="">
+  <input type="button" onclick="doIt()" value="проверить">
+  <div id="resOut"></div>
+  </body>
+  <script type="text/javascript">
+  function doIt(){
+  
+  res=Array();
+  seqDown=1; seqUp=1;
+  res[0]=Array("беспорядок", "убывающее");
+  res[1]=Array("возрастающее", "одно число");
+  tempString=document.getElementById("inputArray").value;
+  inArray=tempString.split(",");
+  for(i=1;i<inArray.length;i++){
+  if(parseInt(inArray[i-1])>parseInt(inArray[i])){seqUp=0;}
+  if(parseInt(inArray[i-1])<parseInt(inArray[i])){seqDown=0;}
+  }
+  document.getElementById("resOut").innerHTML=res[seqUp][seqDown]
+  }
+  </script>
+</html>

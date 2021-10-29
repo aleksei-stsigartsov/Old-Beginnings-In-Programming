@@ -1,0 +1,117 @@
+<!doctype html>
+
+<html>
+    <head>
+
+        <meta charset="utf-8" content="text/html">
+        <title>Laboratory page</title>
+		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+        <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
+		<link type="text/css" rel="stylesheet" href="style.css"/>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">	
+    </head>
+
+    <body style="background-color: lightgray;">
+
+       <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <nav  style="background: rgb(30,39,97,0.8);" class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand font1" href="main_page.html">Arduino/Бригадная Учебка</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                        </button>
+                      
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle font1" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Выполненые задания
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item font1" href="laboratory_task_page1.html">Задание 1</a>
+                                    <a class="dropdown-item font1" href="laboratory_task_page2.html">Задание 2</a>
+                                    <a class="dropdown-item font1" href="laboratory_task_page3.html">Задание 3</a>
+                                </div>
+                                </li>
+                            </ul>
+                            <div style="padding-right: 10px;">
+                                <img src="img/user.png" width="50px"/>
+                            </div>
+                            <div>
+                                <a class="nav-link dropdown-toggle font1" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Aleksei Stsigartsov
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item font1" href="sign_up_or_in_page.html">Выйти из аккаунта</a>
+                            </div>
+                        </div>
+                      </nav>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="col-12">
+                <div style="background:url(img/bg.jpg)">
+                    <div class="form-group">
+                        <ul class="navbar-nav" style="padding-right: 10%; padding-bottom: 5%; padding-top: 5%;">
+                            <ul style="text-align: center;">
+                                <div>
+                                    <h1 class="font2">Arduino Beast</h1>
+                                </div>
+                            </ul>
+                            <ul>
+                                <span class="font2">
+                                    <img style="float: left; margin: 1px 20px 7px 0; width:400px" src="img/model1.jpg"/>
+                                    <div>
+									<h4>Состав устройства:</h4>
+									<ol><li>Arduino Nano</li><li>Ультразвуковой датчик расстояния <a rel="noreferrer noopener" aria-label="HC-SR04  (откроется в новой вкладке)" href="https://arduinomaster.ru/datchiki-arduino/ultrazvukovoj-dalnomer-hc-sr04/" target="_blank">HC-SR04 </a></li><li>Драйвер мотора <a rel="noreferrer noopener" aria-label="L293D (откроется в новой вкладке)" href="https://www.instructables.com/id/How-to-use-the-L293D-Motor-Driver-Arduino-Tutorial/" target="_blank">L293D</a> или <a href="https://robotchip.ru/obzor-drayvera-motora-na-l298n/" target="_blank" rel="noreferrer noopener" aria-label="L298N (откроется в новой вкладке)">L298N</a></li><li>DC-мотор</li><li>Шасси</li></ol>
+									</div>
+                                </span>
+                            </ul>
+                            <ul style="padding-top: 2%;">
+                                <details>
+                                <summary class="font2">Код подключения к модулю</summary>
+								<div class="font2">
+								<img src="img/ch2.png" style="float: left; margin: 1px 20px 7px 0; width:400px">
+								<h4>Код программы для подключения:</h4>
+        <div>
+        <ol>
+			<li> digitalWrite( enablePin, HIGH); //Включить внутренний сигнал 38 кГц</li>
+			<li> microDelay( 210);                   //Задержка 210µs(8 пульсов по 38kHz)</li>
+			<li>  if( digitalRead( outputPin))        //Если Output детектора равен HIGH</li>
+			<li> {</li>
+			<li>  objectDetect = false;           //Препятсвия не было найдено</li>
+			<li> }</li>
+			<li>else                                //Но если Output равен LOW,</li>
+			<li>      microDelay( 395);               //Опять ждать 15 пульсов</li>
+			<li>      if( digitalRead( outputPin))    //Если Output теперь равен </li>
+		</ol>
+        </div>
+								</div>
+                                </details>
+                            </ul>
+                            <ul style="padding-top: 2%;">
+                                <details>
+                                <summary class="font2">Просмотр реакции устройства</summary>
+								<div class="font2">
+                                <h4>Сценарий работы устройства:</h4>
+								<ol><li>После запуска робот стоит неподвижно.</li><li>При получании сигнала от датчика &#8211; движется 0,5 метра в  направлении  противоположном датчику.</li><li>По окончании движения стоит.</li><li>Если при движении от препятствия робот обнаруживает другое препятствие, то он должен разместить себя на одинаковых расстояниях от обоих препятствий.</li><li>* Если через минуту ничего не происходит &#8211; движется обратно.</li></ol>
+                                </div>
+								</details>
+                            </ul>                             
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>       
+        
+
+        <script language="javascript" src="js/jquery-3.5.1.slim.min.js"></script>
+        <script language="javascript" src="js/popper.min.js"></script>
+        <script language="javascript" src="js/bootstrap.min.js"></script>
+
+    </body>
+</html>

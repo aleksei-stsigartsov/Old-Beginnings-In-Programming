@@ -1,0 +1,24 @@
+.font1
+{
+	font-family: 'Comfortaa', cursive; color:black;
+}
+.font2
+{
+	font-family: 'Comfortaa', cursive; color:white;
+}
+.scale {
+    display: inline-block; /* Строчно-блочный элемент */
+    overflow: hidden; /* Скрываем всё за контуром */
+   }
+   .scale img {
+    transition: 1s; /* Время эффекта */
+    display: block; /* Убираем небольшой отступ снизу */
+   }
+   .scale img:hover {
+    transform: scale(1.2); /* Увеличиваем масштаб */
+   }
+ body {
+	 height: 825px;
+    background: linear-gradient(45deg, rgba(0, 14, 105, 0.9), rgba(160, 212, 220, 0.6)), url(img/kras.jpg); 
+  background-size: cover;
+   }

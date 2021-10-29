@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title></title>
+<link rel="stylesheet" href="css/font-awesome.min.css" />
+<link href="css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+<h1 class="display-4">Система "Умный дом"</h1>
+<h2 class="display-6">Модуль "Окно"</h2>
+</div>
+		<div class="col row">
+<div class="btn-group col-12">
+  <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    Выберите окно для управления
+  </button>
+  <ul class="dropdown-menu">
+	<li><h6 class="dropdown-header">Первый этаж</h6></li>
+	<li><h6 class="dropdown-header">&#8627; Гостинная</h6></li>
+    <li><button class="dropdown-item" type="button">Окно 1</button></li>
+    <li><button class="dropdown-item" type="button">Окно 2</button></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header">Подвал</h6></li>
+    <li><button class="dropdown-item" type="button">Окно 1</button></li>
+    <li><button class="dropdown-item" type="button">Окно 2</button></li>
+  </ul>
+</div>
+<div class="form-check col-12">  
+<button type="submit" class="btn btn-danger mb-3" id="btnWinClose" onclick="winButtonToggle()" ><i class="fa fa-lock" aria-hidden="true"></i> <span>Окно закрыто</span></button>
+</div>
+<div class="form-check col-4">
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+  <label class="form-check-label" for="flexRadioDefault1">
+    Окно
+  </label>
+</div>
+<div class="form-check col-4">
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+  <label class="form-check-label" for="flexRadioDefault2">
+    Форточка
+  </label>
+</div>
+<div class="form-check col-4">
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+  <label class="form-check-label" for="flexRadioDefault3">
+    Микропроветривание
+  </label>
+  </div>
+		<div class="col-8">
+		<label for="customRange3" class="form-label">Положение окна</label>
+<input type="range" class="form-range" min="0" max="90" step="10" id="winOpenValue" disabled onchange="changeWinAngle()">
+</div>
+		<div class="col-4">
+		<div class="mb-3">
+      <label class="form-label"></label>
+      <input type="text" id="winOpenValueText" class="form-control" placeholder="0.00">
+    </div>
+</div>
+		</div>
+		<div class="col">
+
+		<img src="pics/001.png" height="250px" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+
+		</div>	
+	</div>
+	<div class="row">
+		<div class="col">
+
+		</div>	
+	</div>
+</div>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script language="javascript">
+function winButtonToggle(){
+	document.getElementById("btnWinClose").style.backgroundColor="green";
+	document.getElementById("btnWinClose").style.borderColor="green";
+	document.getElementById("btnWinClose").childNodes[0].attributes[0].value='fa fa-unlock';
+	document.getElementById("btnWinClose").childNodes[2].innerHTML="Окно открыто";
+	document.getElementById("winOpenValue").removeAttribute('disabled');
+}
+function changeWinAngle(){
+	document.getElementById("winOpenValueText").value=document.getElementById("winOpenValue").value;
+}
+</script>
+</body>
+</html>

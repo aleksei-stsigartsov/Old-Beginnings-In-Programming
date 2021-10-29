@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Task 1</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <p id="summa"></p>
+    <p id="proiz"></p>
+    <script>
+      arr = [
+        [1, 2, 3],
+        [4, 5, 6],
+      ];
+      summa = 0;
+      proiz = 1;
+      for (i = 0; i < arr.length; i++) {
+        for (j = 0; j < arr[i].length; j++) {
+          summa = summa + arr[i][j];
+          proiz = proiz * arr[i][j];
+          document.getElementById("summa").innerHTML = "Сумма: " + summa;
+          document.getElementById("proiz").innerHTML = "Произведение: " + proiz;
+        }
+      }
+    </script>
+  </body>
+</html>

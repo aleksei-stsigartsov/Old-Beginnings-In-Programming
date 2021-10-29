@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>HTML код таблицы, примеры</title>
+<link rel="stylesheet" href="file.css">
+<script type="text/javascript">
+N=9;
+sVar=Array("X","0");
+S=sVar[0];
+steps=0;
+pole=Array();
+function gameReset(){
+N=9;
+sVar=Array("X","0");
+S=sVar[0];
+steps=0;
+pole=Array();
+for(i=0;i<N;i++){document.getElementById("gameButton"+(i+1)).innerHTML="";}
+}
+function myFunction(kletka){
+	textTest=kletka.innerHTML;
+	if(textTest==""){
+	kletka.innerHTML=S;
+	steps++;
+	for(i=0; i<N; i++){pole[i]=document.getElementById("gameButton"+(i+1)).innerHTML;}
+		vinTest=false;
+		if(pole[0]==pole[1] && pole[2]==pole[1] && pole[0]!=""){vinTest=true;}
+		if(pole[3]==pole[4] && pole[4]==pole[5] && pole[3]!=""){vinTest=true;}
+		if(pole[6]==pole[7] && pole[7]==pole[8] && pole[6]!=""){vinTest=true;}
+		if(pole[0]==pole[3] && pole[3]==pole[6] && pole[0]!=""){vinTest=true;}
+		if(pole[1]==pole[4] && pole[4]==pole[7] && pole[1]!=""){vinTest=true;}
+		if(pole[2]==pole[5] && pole[5]==pole[8] && pole[2]!=""){vinTest=true;}
+		if(pole[0]==pole[4] && pole[4]==pole[8] && pole[0]!=""){vinTest=true;}
+		if(pole[2]==pole[4] && pole[4]==pole[6] && pole[2]!=""){vinTest=true;}
+	if(vinTest==false){
+	if(steps==9){alert("Ничья");gameReset();}
+	S=sVar[1-sVar.indexOf(S)];
+	 }else{alert("Победил " +S);gameReset();}
+	}
+}
+</script>
+</head>
+<body onload="gameReset()">
+<table border="10px">
+<tr>
+<td><button class="padthing" id="gameButton1" onclick="myFunction(this)"></button></td>
+<td><button class="padthing" id="gameButton2" onclick="myFunction(this)"></button></td>
+<td><button class="padthing" id="gameButton3" onclick="myFunction(this)"></button></td>
+</tr>
+<tr>
+<td><button class="padthing" id="gameButton4" onclick="myFunction(this)"></button></td>
+<td><button class="padthing" id="gameButton5" onclick="myFunction(this)"></button></td>
+<td><button class="padthing" id="gameButton6" onclick="myFunction(this)"></button></td>
+</tr>
+<tr>
+<td><button class="padthing" id="gameButton7" onclick="myFunction(this)"></button></td>
+<td><button class="padthing" id="gameButton8" onclick="myFunction(this)"></button></td>
+<td><button class="padthing" id="gameButton9" onclick="myFunction(this)"></button></td>
+</tr>
+</table>
+
+</body>
+</html>

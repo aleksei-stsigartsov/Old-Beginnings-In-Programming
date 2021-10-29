@@ -1,0 +1,25 @@
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Publisher</th>
+            <th>ISBN</th>
+            <th>Author</th>
+            <th>Edition</th>
+            <th>Year</th>
+        </tr>
+        @{ int ctr = 1; }
+        @foreach (Book s in books)
+        {
+            <tr>
+                <td>@ctr</td>
+                <td>@s.Title</td>
+                <td>@s.Publisher</td>
+                <td>@s.ISBN</td>
+                <td>@s.Author</td>
+                <td>@s.Edition</td>
+                <td>@s.Year</td>
+                @{ ctr++; }
+            </tr>
+        }
+    </table>

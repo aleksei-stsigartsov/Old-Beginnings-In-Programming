@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <meta charset="utf-8" content="text/html">
+  <title>KY-027</title>
+  <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
+</head>
+<body style="background-color:#fff;">
+  <div class="container">
+  <nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="index.html">Arduino models</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Arduino modules
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="KY-018.html">KY-018</a>
+		  <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="KY-032.html">KY-032</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="KY-027.html">KY-027</a>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+    <h1 style="text-align: center;">KY-027 MAGIC LIGHT CUP MODULE</h1>
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-3 col-sm-12">
+        <img src="KY-027.jpg" width="200px">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <span>
+        <h2>Краткое описание модуля:</h2>
+          "Arduino KY-027 Magic Light Cup Module" - представляет собой набор из двух плат, каждая из которых имеет светодиод и ртутный переключатель наклона. Используя PWM для управления 
+		  светодиодами на каждом модуле, вы можете добиться эффекта «волшебного» перехода света от одного модуля к другому при их наклоне.
+        </span>
+      </div>
+    </div>
+      <div class="row">
+        <div class="col-lg-6 col-sm-12">
+          <h2>Схема подключения к Arduino:</h2>
+          <img src="KY-027_scheme.jpg" width="50%" alt="Image not found">
+        </div>
+        <div class="col-lg-6 col-sm-12">
+        <h2>Код программы для подключения:</h2>
+        <div>
+          <ol>
+					<li>int ledPinA = 9;</li>
+					<li>int switchPinA = 8;</li>
+					<li>int switchStateA = 0;</li>
+					<li>int ledPinB = 6;</li>
+					<li>int switchPinB = 7;</li>
+					<li>int switchStateB = 0;</li>
+					<li>int brightness   = 0;</li>
+					<li></li>
+					<li>void setup() </li>
+					<li>{</li>
+					<li>pinMode(ledPinA, OUTPUT); </li>
+					<li>pinMode(ledPinB, OUTPUT);  </li>
+					<li>pinMode(switchPinA, INPUT); </li>
+					<li>pinMode(switchPinB, INPUT);</li>
+					<li>}</li>
+					<li></li>
+					<li>void loop() </li>
+					<li>{</li>
+					<li>switchStateA = digitalRead(switchPinA);</li>
+					<li>if (switchStateA == HIGH && brightness != 255)</li>
+					<li>{ </li>
+					<li>brightness ++;</li>
+					<li>} </li>
+					<li>switchStateB = digitalRead(switchPinB);</li>
+					<li>if (switchStateB == HIGH && brightness != 0)</li>
+					<li>{ </li>
+					<li> brightness --;</li>
+					<li>} </li>
+					<li>analogWrite(ledPinA, brightness);  //  A slow fade out</li>
+					<li>analogWrite(ledPinB, 255 - brightness);  // B slow bright up</li>
+					<li>delay(20);</li>
+					<li>}</li>
+					<li></li>
+				</ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script language="javascript" src="js/jquery-3.5.1.slim.min.js"></script>
+  <script language="javascript" src="js/popper.min.js"></script>
+  <script language="javascript" src="js/bootstrap.min.js"></script>
+
+</body>
+</html>

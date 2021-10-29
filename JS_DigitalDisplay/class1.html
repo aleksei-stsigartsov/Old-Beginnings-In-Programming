@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf8">
+<script language="javascript" src="odin.js"></script>
+<title>Digits</title>
+</head>
+<body>
+<div id="tablo"></div>
+<script>
+N=2003;
+var chtoto = new nechto("tablo",N);
+function finalCountDown(N){
+	chtoto.setDigit(N);
+	N--;
+	setTimeout("finalCountDown("+N+")",1000);
+}
+finalCountDown(N);
+//var chtoto = new nechto("tablo",2003);
+//chtoto.setDigit(2003);
+</script>
+</body>
+</html>
